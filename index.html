@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Boîte à idée </title>
+</head>
+<body>
+    <div class="navigation">
+        <div class="item_navigation1">
+            <a href="index.html"><span>Idées</span></a>
+        </div>
+        <!-- <div class="item_navigation">
+            <a href="gestion_idee.html"><span>Gestion Idées</span></a>
+        </div> -->
+    </div>
+
+    <section id="idee-list">
+        <!-- La liste des tâches  affiche ici -->
+    </section>
+<div class="container">
+  <div class="fomulaire_section">
+    <h1>Boîte à Idées</h1>
+    <form id="idea-form" onsubmit="return validateurDuFormulaire()">
+        <input type="text" id="idea-title" placeholder="Libellé" >
+        <div id="titleError" class="error"></div>
+        <select id="idea-category">
+          <option value="">Sélectionner une catégorie</option>
+          <option value="politique">Politique</option>
+          <option value="sport">Sport</option>
+          <option value="santé">Santé</option>
+          <option value="éducation">Éducation</option>
+        </select>
+        <div id="categoryError" class="error"></div>
+        <textarea id="idea-description" placeholder="Message descriptif" ></textarea>
+        <div id="descriptionError" class="error"></div>
+        <button type="submit">Soumettre</button>
+      </form>
+  </div>
+
+<div class="boite">
+
+  <div id="message"></div>
+
+  <div id="ideas-list"></div>
+</div>
+
+</div>
+    <script src="App.js"></script>
+</body>
+</html>
+
