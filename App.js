@@ -22,22 +22,18 @@ function validerTitre() {
 
 // Valider la catégorie
 function validerCategorie() {
-    const category = document.getElementById("idea-category").value;
-    const categoryError = document.getElementById("categoryError");
-    categoryError.innerHTML = "";
-  
+  const category = document.getElementById("idea-category").value;
+  const categoryError = document.getElementById("categoryError");
+  categoryError.innerHTML = "";
 
-    const validCategories = ["politique", "sport", "santé", "éducation"];
-  
-    if (category === "" || !validCategories.includes(category)) {
-      categoryError.innerHTML = "Veuillez sélectionner une catégorie valide";
-      return false;
-    // } else if (!validCategories.includes(category)) {
-    //   categoryError.innerHTML = "Catégorie non valide";
-    //   return false;
-    }
-    return true;
+  const validCategories = ["politique", "sport", "santé", "éducation"];
+
+  if (category === "" || !validCategories.includes(category)) {
+    categoryError.innerHTML = "Veuillez sélectionner une catégorie valide";
+    return false;
   }
+  return true;
+}
 
 // Valider la description
 function validerDescription() {
@@ -45,8 +41,8 @@ function validerDescription() {
   const descriptionError = document.getElementById("descriptionError");
   descriptionError.innerHTML = "";
 
-  if (description === "" || description.length < 10 || description.length >500) {
-    descriptionError.innerHTML = "Veuillez entrer une description entre 10 et 100 caractères";
+  if (description === "" || description.length < 10 || description.length > 500) {
+    descriptionError.innerHTML = "Veuillez entrer une description entre 10 et 500 caractères";
     return false;
   }
   return true;
@@ -90,50 +86,54 @@ function ajouterIdee() {
   displayIdeas();
 }
 
-
 // La fonction qui  nous permet de d'echaper les code script dans le formulaire :
-
 function escapeHtml(unsafe) {
-    return unsafe
-         .replace(/&/g, "&amp;")
-         .replace(/</g, "&lt;")
-         .replace(/>/g, "&gt;")
-         .replace(/"/g, "&quot;")
-         .replace(/'/g, "&#039;");
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
 // Afficher les idées dans la liste
 function displayIdeas() {
-    ideasList.innerHTML = "";
+  ideasList.innerHTML = "";
 
-    ideas.forEach((idea, index) => {
-        const ideaItem = document.createElement("div");
-        ideaItem.classList.add("idea-item");
+  ideas.forEach((idea, index) => {
+    const ideaItem = document.createElement("div");
+    ideaItem.classList.add("idea-item");
 
-        ideaItem.innerHTML = `
-            <h3 class="idea-title">${escapeHtml(idea.title)}</h3>
-            <p class="idea-category">Catégorie: ${escapeHtml(idea.category)}</p>
-            <p class="idea-description">${escapeHtml(idea.description)}</p>
-            <p class="idea-status">Status: ${idea.approved ? "Approuvée" : "Non approuvée"}</p>
-            <div class ="btn-section">
-                <button class="approve-idea" data-index="${index}">Approuver</button>
-                <button class="disapprove-idea" data-index="${index}">Désapprouver</button>
-                <button class="delete-idea" data-index="${index}">Supprimer</button>
-            </div>
-        `;
+    ideaItem.innerHTML = `
+      <h3 class="idea-title">${escapeHtml(idea.title)}</h3>
+      <p class="idea-category">Catégorie: ${escapeHtml(idea.category)}</p>
+      <p class="idea-description">${escapeHtml(idea.description)}</p>
+      <p class="idea-status">Status: ${idea.approved ? "Approuvée" : "Non approuvée"}</p>
+      <div class ="btn-section">
+        <button class="approve-idea" data-index="${index}">Approuver</button>
+        <button class="disapprove-idea" data-index="${index}">Désapprouver</button>
+        <button class="delete-idea" data-index="${index}">Supprimer</button>
+      </div>
+    `;
 
-        ideasList.appendChild(ideaItem);
+    ideasList.appendChild(ideaItem);
 
-        const approveIdeaBtn = ideaItem.querySelector(".approve-idea");
-        const disapproveIdeaBtn = ideaItem.querySelector(".disapprove-idea");
-        const deleteIdeaBtn = ideaItem.querySelector(".delete-idea");
+    const approveIdeaBtn = ideaItem.querySelector(".approve-idea");
+    const disapproveIdeaBtn = ideaItem.querySelector(".disapprove-idea");
+    const deleteIdeaBtn = ideaItem.querySelector(".delete-idea");
 
-        approveIdeaBtn.addEventListener("click", () => approveIdea(index));
-        disapproveIdeaBtn.addEventListener("click", () => disapproveIdea(index));
-        deleteIdeaBtn.addEventListener("click", () => deleteIdea(index));
-    });
+    approveIdeaBtn.addEventListener("click", () => approveIdea(index));
+    disapproveIdeaBtn.addEventListener("click", () => disapproveIdea(index));
+    deleteIdeaBtn.addEventListener("click", () => deleteIdea(index));
+  });
 }
 
+// Approuver une idée
+function approveIdea(index) {
+  ideas[index].approved = true;
+  localStorage.setItem("ideas", JSON.stringify(ideas));
+  displayIdeas();
+}
 
 // Désapprouver une idée
 function disapproveIdea(index) {
@@ -151,5 +151,3 @@ function deleteIdea(index) {
 
 // Initialiser l'application en affichant les idées existantes
 displayIdeas();
-
-
