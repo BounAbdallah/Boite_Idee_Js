@@ -1,194 +1,243 @@
-body{
-    margin: 0px;
+/* Style général pour le corps */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
-.navigation{
-    width: 100%;
-    background: #ce0233;
-    height:60px;
+.h1{
+    margin-left: 50px;
+}
+.h2{
     display: flex;
     justify-content: flex-start;
-    text-align: center;
+    align-items: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+/* Navigation */
+.navigation {
+    width: 100%;
+    background: #ce0233;
+    height: 60px;
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
     gap: 30px;
 }
-.item_navigation1{
+
+.item_navigation1 {
     background: #fff;
     width: 200px;
     margin-left: 200px;
     height: 35px;
     display: flex;
     justify-content: center;
-    text-align: center;
     align-items: center;
     border-radius: 20px;
 }
-.item_navigation1 a{
+
+.item_navigation1 a {
     text-decoration: none;
     color: #ce0233;
-
 }
 
-.item_navigation{
+.item_navigation {
     border: 2px solid #fff;
     width: 200px;
-    margin-left: 200px;
     height: 35px;
     display: flex;
     justify-content: center;
-    text-align: center;
     align-items: center;
     border-radius: 20px;
 }
-.item_navigation a{
+
+.item_navigation a {
     text-decoration: none;
     color: #fff;
-
 }
 
+/* Formulaire */
+.container {
+    max-width: 100%;
+    margin: auto;
+    padding: 20px;
+}
 
-.fomulaire_section{
-    width: 600px;
-    height: 400px;
+.container_form {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.formulaire_section {
+    width: 60%;
     background: #ce0233;
-    margin-left: 30px;
-    margin-top: 50px;
-    padding: 30px;
+    padding: 40px;
+    border-radius: 8px;
     color: #fff;
-
-   
 }
 
-.fomulaire_section form{
-    /* background: #fff; */
+#idea-form {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    gap:20px;
+    gap: 20px;
 }
-.fomulaire_section form input, textarea,select,  button{
-    width: 70%;
-    height: 30px;
-    border: 0px;
+
+.champs1, .champs2 {
     display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-.container{
-    display: flex;
-    flex-direction: row;
-    gap: 50px;
+    flex-direction: column;
 }
 
-
-#message {
-    text-align: center;
+.champs1 input, .champs2 textarea, select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
     margin-top: 10px;
-  }
-  
-  #ideas-list {
-    max-width: 500px;
-    margin: 10px auto;
-    border-top: 1px solid #ccc;
-    padding-top: 20px;
-  }
-
-.boite
-{
-    width:70%;
-    background: #ccc;
-    margin-top: 50px;
-    display: flex;
-    margin-right: 20px;
-    flex-direction: row;
-    justify-content:space-evenly;
-}
-.boite .ideas-list{
-    width: 500px;
-    background: #ce0233;
-}
-.ideas-list{
-    background: #ce0233;
 }
 
-.btn-section{
-display: flex;
-flex-direction: row;
+textarea {
+    resize: none;
 }
 
-.idea-item {display: flex;
+select {
+    height: 45px;
+}
 
-    margin-left: -100px;
-    width: 300px;
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
-    margin-bottom: 10px;
+.champs2 span {
+    text-align: right;
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+.btn {
     background-color: #fff;
+    color: #D6111A;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
 
+.btn:hover {
+    opacity: 0.8;
+}
 
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+/* Boîte à idées */
+.boite {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+#ideas-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+.idea-card{
+    padding: 10px;
+    border-radius: 10px;
+
+}
+.idea-item {
+
+    background: #fff;
     padding: 20px;
     border-radius: 8px;
-  }
-  .idea-item {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
-    margin-bottom: 10px;
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-  }
-  
-  .idea-title {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.idea-item.approved {
+    border: 3px solid #05861A;
+}
+
+.idea-item.disapproved {
+    border: 3px solid #D6111A;
+}
+
+.idea-title {
     margin: 0;
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: #333;
-  }
-  
-  .idea-category {
-    margin: 5px 0;
+}
+
+.idea-category {
     font-style: italic;
     color: #666;
-  }
-  
-  .idea-description {
+}
+
+.idea-description {
     margin: 10px 0;
     color: #555;
-  }
-  
-  .idea-status {
-    margin: 10px 0;
+}
+
+.idea-status {
     font-weight: bold;
-  }
-  
-  button {
-    margin-right: 5px;
+}
+
+.btn-section {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-section button {
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 0.9em;
-  }
-  
-  .approve-idea {
+}
 
-    color: white;
-    background: rgb(5, 134, 26);
-  }
-  
-  .disapprove-idea {
+.approve-idea {
+    background-color: #05861A;
+    color: #fff;
+}
+
+.disapprove-idea {
     background-color: #D6111A;
-    color: white;
-  }
-  
-  .delete-idea {
-    background-color:black;
-    color: white;
-  }
-  
-  button:hover {
+    color: #fff;
+}
+
+.delete-idea {
+    background-color: #333;
+    color: #fff;
+}
+
+.delete-idea img {
+    width: 20px;
+    height: 20px;
+}
+
+button:hover {
     opacity: 0.8;
-  }
-  
+}
+
+/* Image décoration */
+.imageDecoration img {
+    width: 400px;
+    height: 400px;
+    border-radius: 8px;
+}
+
+/* Compteur de caractères */
+#char-count {
+    font-size: 14px;
+    color: #fff;
+    text-align: right;
+}
+
+textarea:focus {
+    outline: none;
+    border: 2px solid #FF4754;
+}
