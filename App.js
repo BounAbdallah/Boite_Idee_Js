@@ -210,7 +210,7 @@ function validerDescription() {
 }
 
 // Ajouter une idée à la liste et à la base de données
-// Ajouter une idée à la liste et à la base de données
+
 async function ajouterIdee() {
     const title = document.getElementById("idea-title").value;
     const category = document.getElementById("idea-category").value;
