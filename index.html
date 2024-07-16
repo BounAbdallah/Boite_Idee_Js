@@ -16,43 +16,41 @@
 
     <div class="container">
         <div class="container_form">
-        <div class="formulaire_section">
-            <form id="idea-form" onsubmit="return validateurDuFormulaire()">
-                <div class="champs1">
-                    <input type="text" id="idea-title" placeholder="Libellé">
-                    <br>
-                    <div id="titleError" class="error"></div>
-                    <select id="idea-category">
-                        <option value="">Sélectionner une catégorie</option>
-                        <option value="politique">Politique</option>
-                        <option value="sport">Sport</option>
-                        <option value="santé">Santé</option>
-                        <option value="éducation">Éducation</option>
-                    </select><br>
-                    <p id="categoryError" class="error-message"></p>
-                </div>
-                <div class="champs2">
-                    <textarea id="idea-description" placeholder="Message descriptif" maxlength="255"></textarea>
-                    <div id="char-count">0/255 caractères</div><br>
-                    <div id="descriptionError" class="error"></div>
-                </div>
+            <div class="formulaire_section">
+                <form id="idea-form" onsubmit="return validateurDuFormulaire()">
+                    <div class="champs1">
+                        <input type="text" id="idea-title" placeholder="Libellé">
+                        <br>
+                        <div id="titleError" class="error"></div>
+                        <select id="idea-category">
+                            <option value="">Sélectionner une catégorie</option>
+                            <option value="politique">Politique</option>
+                            <option value="sport">Sport</option>
+                            <option value="santé">Santé</option>
+                            <option value="éducation">Éducation</option>
+                        </select><br>
+                        <p id="categoryError" class="error-message"></p>
+                    </div>
+                    <div class="champs2">
+                        <textarea id="idea-description" placeholder="Message descriptif" maxlength="255"></textarea>
+                        <div id="char-count">0/255 caractères</div><br>
+                        <div id="descriptionError" class="error"></div>
+                    </div>
 
-                <button class="btn" type="submit">Soumettre</button>
-            </form>
-            
-        </div>
-        <div class="imageDecoration">
-                <img src="images/ida_img.jpg" alt="">
+                    <button class="btn" type="submit">Soumettre</button>
+                </form>
+            </div>
+            <div class="imageDecoration">
+                <img src="images/image_idea.jpg" alt="">
             </div>
         </div>
         <div class="boite">
+        <div class="h2">Idées soumisses</div>
             <div id="message"></div>
             <div id="ideas-list" class="ideas-grid"></div>
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.30.1/dist/umd/supabase.js"></script>
     <script src="App.js"></script>
-
-    
 </body>
 </html>

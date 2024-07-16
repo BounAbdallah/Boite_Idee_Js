@@ -3,8 +3,16 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     overflow-x: hidden;
-}.h1{
+}
+.h1{
     margin-left: 50px;
+}
+.h2{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 40px;
+    margin-bottom: 20px;
 }
 
 /* Navigation */
@@ -136,8 +144,13 @@ select {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
 }
+.idea-card{
+    padding: 10px;
+    border-radius: 10px;
 
+}
 .idea-item {
+
     background: #fff;
     padding: 20px;
     border-radius: 8px;
